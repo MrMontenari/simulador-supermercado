@@ -87,7 +87,29 @@ let produtos = [
 function exibirCatalogo(){
     console.log("Temos no nosso catalogo:")
     produtos.forEach((produto) => {
-        console.log(produto.codigo + " | " + produto.nome + " | " + produto.categoria + " | " + "R$" +produto.preco.toFixed(2) + " | " + "Em estoque: " + produto.estoque)
+        console.log(produto.codigo + " | " + produto.nome + " | " + produto.categoria + " | " + "R$" +produto.preco.toFixed(2) + " | " + "Em estoque: " + produto.estoque) 
     })
  }
 exibirCatalogo()
+
+// Carrinho
+let carrinho = [
+
+]
+
+function adicionarProduto(codigo, quantidade){
+    let produto = produtos.find((p) => p.codigo === codigo)
+
+     produto.estoque -= quantidade
+
+    carrinho.push({
+        produto: produto,
+        quantidade: quantidade,
+    })
+
+
+}
+
+adicionarProduto(9, 2)
+console.log(carrinho)
+console.log(produtos[0].estoque)
