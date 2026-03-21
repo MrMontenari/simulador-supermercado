@@ -83,20 +83,20 @@ let produtos = [
 
 ]
 
-// Exibir nosso catalogo
+// Exibir nosso catalogo de produtos
 function exibirCatalogo(){
     console.log("Temos no nosso catalogo:")
     produtos.forEach((produto) => {
         console.log(produto.codigo + " | " + produto.nome + " | " + produto.categoria + " | " + "R$" +produto.preco.toFixed(2) + " | " + "Em estoque: " + produto.estoque) 
     })
  }
-exibirCatalogo()
 
 // Carrinho
 let carrinho = [
 
 ]
 
+// Adiciona produtos ao carrinho
 function adicionarProduto(codigo, quantidade){
     let produto = produtos.find((p) => p.codigo === codigo)
 
@@ -110,6 +110,42 @@ function adicionarProduto(codigo, quantidade){
 
 }
 
-adicionarProduto(9, 2)
-console.log(carrinho)
-console.log(produtos[0].estoque)
+// Remover produto do carrinho
+function removerProduto(codigo, quantidade){
+    let produto = produtos.find((p) => p.codigo === codigo)
+
+    produto.estoque += quantidade
+
+   carrinho = carrinho.filter((item) => item.produto.codigo !== codigo)
+
+    }
+
+// Mostra o carrinho
+function exibirCarrinho(){
+    console.log("Seu carrinho contém: ")
+    carrinho.forEach((carrinho) => {
+        console.log(carrinho.quantidade + " | " + carrinho.nome + " | " + carrinho.preco + " | " + carrinho.categoria + " | " + carrinho.codigo)
+    })
+}
+
+//Calcacular total no carrinho
+function calcularTotal(){
+    
+}
+
+// Zona das funções -----------------------------------------------------------------------------------------------------------------------------------------------
+exibirCatalogo()
+
+    //Mostra o que tem no carrinho
+exibirCarrinho()
+
+        // Adiconar produto ao carrinho
+        adicionarProduto(9, 2)
+        console.log(carrinho)
+        console.log(produtos[8].estoque)
+
+        // Remover produto do carrinho 
+        removerProduto(9, 2)
+        console.log(carrinho)
+        console.log(produtos[8].estoque)
+        
