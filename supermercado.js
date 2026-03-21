@@ -124,28 +124,34 @@ function removerProduto(codigo, quantidade){
 function exibirCarrinho(){
     console.log("Seu carrinho contém: ")
     carrinho.forEach((carrinho) => {
-        console.log(carrinho.quantidade + " | " + carrinho.nome + " | " + carrinho.preco + " | " + carrinho.categoria + " | " + carrinho.codigo)
+        console.log( "Quantidade: " + carrinho.quantidade + " | " + carrinho.produto.nome + " | " + "Preço: R$" + carrinho.produto.preco.toFixed(2) + " | " + "Categoria: " + carrinho.produto.categoria + " | " +  "ID: " + carrinho.produto.codigo)
     })
 }
 
 //Calcacular total no carrinho
 function calcularTotal(){
-    
+    let soma = 0
+    carrinho.forEach((carrinho)=> (soma += (carrinho.produto.preco * carrinho.quantidade)).toFixed(2))
+    console.log("O preço total do seu carrinho está em: R$" + soma.toFixed(2))
 }
 
 // Zona das funções -----------------------------------------------------------------------------------------------------------------------------------------------
 exibirCatalogo()
 
-    //Mostra o que tem no carrinho
-exibirCarrinho()
+//CARRINHO-----------------------------
 
-        // Adiconar produto ao carrinho
-        adicionarProduto(9, 2)
-        console.log(carrinho)
-        console.log(produtos[8].estoque)
+    // Adiconar produto ao carrinho
+    adicionarProduto(9, 2)
+    adicionarProduto(1, 10)
+    /*console.log(carrinho)
+    console.log(produtos[8].estoque) */
 
-        // Remover produto do carrinho 
-        removerProduto(9, 2)
-        console.log(carrinho)
-        console.log(produtos[8].estoque)
+    // Remover produto do carrinho 
         
+    /*console.log(carrinho)
+    console.log(produtos[8].estoque) */
+  
+    /*  Exibe o carrinho - tem que ficar aqui pq se não ele manda o carrinho vazio, ante de 
+    de receber os produtos */
+    exibirCarrinho()
+    calcularTotal()
