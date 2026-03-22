@@ -131,8 +131,21 @@ function exibirCarrinho(){
 //Calcacular total no carrinho
 function calcularTotal(){
     let soma = 0
-    carrinho.forEach((carrinho)=> (soma += (carrinho.produto.preco * carrinho.quantidade)).toFixed(2))
+    carrinho.forEach((carrinho)=> (soma += (carrinho.produto.preco * carrinho.quantidade))) 
     console.log("O preço total do seu carrinho está em: R$" + soma.toFixed(2))
+    return soma
+}
+
+let cupons = [
+    { codigo: 'PROMO05', cupom:0.95},
+    { codigo: 'PROMO15', cupom:0.85},
+    { codigo: 'PROMO25', cupom:0.75},
+]
+function aplicarCupum(codigo){
+    let PROMO = cupons.find((p) => p.cupom === codigo)
+    let totalDescontado = 0
+    totalDescontado = PROMO.cupom * calcularTotal() 
+    console.log('total descontado: R$' + totalDescontado)
 }
 
 // Zona das funções -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -155,3 +168,4 @@ exibirCatalogo()
     de receber os produtos */
     exibirCarrinho()
     calcularTotal()
+    aplicarCupum(0)
