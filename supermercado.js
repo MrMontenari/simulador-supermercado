@@ -8,7 +8,7 @@ const mercearia = "Mercearia"
 const bebidas = "Bebidas"
 const limpeza = "Limpeza"
 
-
+// Basicamente os produtos do mercado, estão agrupados por categorias
 let produtos = [
     {
         codigo: 1,
@@ -154,8 +154,8 @@ exibirCatalogo()
 //CARRINHO-----------------------------
 
     // Adiconar produto ao carrinho
-    adicionarProduto(9, 2)
-    adicionarProduto(1, 10)
+   // adicionarProduto(9, 2)
+   // adicionarProduto(1, 10)
     /*console.log(carrinho)
     console.log(produtos[8].estoque) */
 
@@ -167,5 +167,5 @@ exibirCatalogo()
     /*  Exibe o carrinho - tem que ficar aqui pq se não ele manda o carrinho vazio, ante de 
     de receber os produtos */
     exibirCarrinho()
-    calcularTotal()
-    aplicarCupum(0)
+    //calcularTotal()
+    //aplicarCupum(0)
